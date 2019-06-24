@@ -1,0 +1,19 @@
+<h2 class="text-center">Reservation confirmation</h2>
+
+<div class="reservation">
+	<div *ngIf="!reservation" class="row">
+		<p class="col-12"><em>Loading...</em></p>
+	</div>
+	<div class="row" *ngIf="reservation">
+		<div class="card col-12">
+			<div class="card-body">
+				<h5 class="card-title">{{ reservation.houseTypeName }}</h5>
+				<p class="card-text">{{ reservation.price }}&euro; <small>per day</small></p>
+				<p class="card-text">
+					Reservationnumber: {{ reservation.id }}<br />
+					Email: {{ reservation.email }}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

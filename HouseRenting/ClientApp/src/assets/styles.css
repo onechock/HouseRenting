@@ -1,0 +1,45 @@
+﻿.no-margin { margin: 0 !important; }
+
+.body-content {
+	max-width: 500px !important;
+	margin: auto;
+}
+
+.jumbotron {
+	font-family: 'Damion', cursive;
+	background: #00ff90;
+    height: 180px;
+    padding: 49px;
+}
+
+.jumbotron h1 {
+	cursor: pointer;
+}
+
+.card {
+	background-color: #e1f8ff !important;
+	margin-bottom: 20px;
+}
+
+.form-control {
+	max-width: 300px;
+}
+
+.form-control.number {
+	max-width: 80px;
+	text-align: right;
+}
+
+.house {
+	background: #eee;
+	border: 1px solid #ddd;
+	text-align: left;
+	padding: 10px 15px;
+	cursor: pointer;
+	margin: auto;
+}
+.house img {
+	width: 100%;
+	max-width: 200px;
+}
+

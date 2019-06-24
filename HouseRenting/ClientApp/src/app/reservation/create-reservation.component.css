@@ -1,0 +1,13 @@
+input.datepicker {
+	max-width: 215px;
+}
+
+.datepicker:read-only {
+	background: white;
+}
+
+form {
+	border: 1px solid #ddd;
+	padding: 10px 15px;
+	border-radius: 3px;
+}

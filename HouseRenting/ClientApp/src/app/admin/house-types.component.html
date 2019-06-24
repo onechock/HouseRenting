@@ -1,0 +1,53 @@
+
+<div class="houseTypes">
+	<div *ngIf="!baseDayFeeForm" class="row">
+		<p class="col-12"><em>Loading...</em></p>
+	</div>
+
+	<div *ngIf="baseDayFeeForm">
+		<form [formGroup]="baseDayFeeForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<h3>Base Day Fee</h3>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<div class="input-group-text"><i class="fas fa-euro-sign"></i></div>
+					</div>
+					<input type="text" class="form-control number" formControlName="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+					<div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+						<div *ngIf="f.price.errors.required">You cant leave a price empty</div>
+						<div *ngIf="f.price.errors.notANumber">Base Day Fee need to be a number</div>
+					</div>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-dark">Update</button>			
+		</form>
+	</div>
+	
+	<div class="row" *ngIf="houseTypes">
+		<div class="col-12">
+			<hr />
+			<h3>HouseTypes</h3>
+		</div>
+	</div>
+
+	<div *ngIf="houseTypes">
+		<div class="houseType row">
+			<div *ngFor="let houseType of houseTypes" class="col-xs-12 col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">{{ houseType.name }}</h5>
+						<p>
+							Price multiplyer: {{ houseType.multiplyPriceBy }}<br />
+							Price per day: {{ houseType.price }}&euro;
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<a href="javascript:void(0)" class="btn btn-dark" (click)="newHouseType()">Create new house type</a>
+	</div>
+</div>

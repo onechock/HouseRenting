@@ -1,0 +1,57 @@
+<div *ngIf="!createForm" class="row">
+	<p class="col-12"><em>Loading...</em></p>
+</div>
+<div *ngIf="createForm">
+	<div class="houseType row no-margin" *ngIf="currentHouseType">
+		<div class="card col-12">
+			<div class="card-body">
+				<h5 class="card-title">{{ currentHouseType.name }}</h5>
+				<p class="card-text">{{ currentHouseType.price }}&euro; <small>per day</small></p>
+			</div>
+		</div>
+	</div>
+
+	<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label for="date">Date</label>
+
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+				</div>
+
+				<input type="text" formControlName="date"
+					   data-provide="datepicker"
+					   data-date-start-date="today"
+					   data-date-autoclose="true"
+					   data-date-orientation="bottom"
+					   readonly="readonly"
+					   class="datepicker form-control"
+					   [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+
+				<div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+					<div *ngIf="f.date.errors.required">You cant leave a date empty</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="email">Email</label>
+
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text"><i class="fas fa-at"></i></div>
+				</div>
+
+				<input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+
+				<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+					<div *ngIf="f.email.errors.required">You cant leave a email empty</div>
+					<div *ngIf="f.email.errors.email">Your email is not in a correct format</div>
+				</div>
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-dark">Reserve</button>
+	</form>
+</div>

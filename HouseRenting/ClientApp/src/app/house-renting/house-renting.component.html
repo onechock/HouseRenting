@@ -1,0 +1,17 @@
+
+<div class="houseTypes">
+	<div *ngIf="!houseTypes" class="row">
+		<p class="col-12"><em>Loading...</em></p>
+	</div>
+	<div class="houseType row" *ngIf="houseTypes">
+		<div *ngFor="let houseType of houseTypes" class="col-xs-12 col-sm-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">{{ houseType.name }}</h5>
+					<p class="card-text">{{ houseType.price }}&euro; <small>per day</small></p>
+					<a href="javascript:void(0)" class="btn btn-primary"  (click)="chooseHouseType(houseType.id)">Rent</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
